@@ -1,4 +1,4 @@
-# React AsyncStorage Usage
+# React
 
 ## key name define
 
@@ -8,7 +8,7 @@
 let STORAGE_KEY = '@ChaojihaoyiApp:zip';
 ```
 
-## read
+## read AsyncStorage
 ```
 AsyncStorage.getItem(STORAGE_KEY)
     .then((value)=> {
@@ -21,11 +21,44 @@ AsyncStorage.getItem(STORAGE_KEY)
     .catch((error)=>console.log('AsyncStorage error:' + error.message))
     .done();
 ```
-## write
+## write AsyncStorage
 ```
 let value = "aaa";
 AsyncStorage.setItem(STORAGE_KEY, value)
     .then(()=>console.log('Save storage value=' + value))
     .catch((error)=>console.log('AsyncStorage error:' + error.message))
     .done();
+```
+
+
+## AsyncStorage Util
+```
+class Util {
+    static async saveCache(key, value) {
+        try {
+            await AsyncStorage.setItem(key, value);
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
+    static async getCache(key) {
+        try {
+            let value = await AsyncStorage.getItem(key);
+            return value;
+        }
+        catch (error) {
+            console.warn(error);
+            return null;
+        }
+    }
+}
+```  
+# AsyncStorage Util usage
+```
+async componentDidMount() {
+    let key = "aaaa";
+    await Util.saveCache(key, "1111");
+    let value =await Util.getCache(key);
+}
 ```
