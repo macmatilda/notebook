@@ -1,3 +1,17 @@
+# MarkDown Usage [参考](http://www.jianshu.com/p/q81RER)
+- #  标题, #,##,###....
+- -  "."
+- 1. "1."
+- ![] 链接
+- > 引用
+- ··· 代码
+-  表格
+   | Tables        | Are           | Cool  |
+   | ------------- |:-------------:| -----:|
+   | col 3 is      | right-aligned | $1600 |
+   | col 2 is      | centered      |   $12 |
+   | zebra stripes | are neat      |    $1 |
+   
 # React
 
 ## key name define
